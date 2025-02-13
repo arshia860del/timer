@@ -29,10 +29,11 @@
     </div>
     <script>
         function updateTimer() {
-            // تاریخ تحویل سال ۱۴۰۴ به وقت تهران (۲۹ اسفند ۱۴۰۳، ساعت ۱۲:۳۱)
-            const newYearDate = new Date("2025-03-21T09:01:00Z").getTime();
+            // تاریخ پایان تایمر: 29 اسفند ۱۴۰۳، ساعت ۱۲:۳۱ تهران (20 مارس 2025، 09:02 UTC)
+            const targetDate = new Date("2025-03-20T09:02:00Z").getTime();
+            
             const now = new Date().getTime();
-            const timeRemaining = newYearDate - now;
+            const timeRemaining = targetDate - now;
 
             if (timeRemaining <= 0) {
                 document.getElementById("timer").innerHTML = "🎉 سال نو مبارک! 🎊";
@@ -48,8 +49,8 @@
             }
         }
 
-        updateTimer(); // اجرای اولیه
-        const timerInterval = setInterval(updateTimer, 1000); // بروزرسانی هر ثانیه
+        updateTimer(); // اولین اجرا
+        const timerInterval = setInterval(updateTimer, 1000); // هر ثانیه به‌روزرسانی می‌شود
     </script>
 </body>
 </html>
