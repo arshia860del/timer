@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایمر تا عید نوروز</title>
+    <title>تایمر تا عید نوروز ۱۴۰۴</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,14 +23,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>تایمر تا عید نوروز ۱۴۰۳</h1>
+        <h1>تایمر تا عید نوروز ۱۴۰۴</h1>
         <p>زمان باقی‌مانده تا سال جدید:</p>
         <div id="timer" class="timer"></div>
     </div>
     <script>
         function updateTimer() {
-            // تاریخ و ساعت تحویل سال ۱۴۰۳ به وقت تهران (۲۱ مارس ۲۰۲۵، ۰۰:۰۰)
-            const newYearDate = new Date("2025-03-21T00:00:00+03:30").getTime();
+            // تاریخ تحویل سال ۱۴۰۴ به وقت تهران (۳۰ اسفند ۱۴۰۳، ساعت ۱۲:۳۱)
+            const newYearDate = new Date("2025-03-21T09:01:00Z").getTime();
             const now = new Date().getTime();
             const timeRemaining = newYearDate - now;
 
@@ -48,7 +48,7 @@
             }
         }
 
-        updateTimer(); // اولین اجرا
+        updateTimer(); // اجرای اولیه
         const timerInterval = setInterval(updateTimer, 1000); // بروزرسانی هر ثانیه
     </script>
 </body>
