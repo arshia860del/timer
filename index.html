@@ -13,8 +13,8 @@
         <div id="timer" class="timer"></div>
     </div>
     <script>
-        // مدت زمان برای تایمر (35 روز و 8 ساعت و 10 دقیقه)
-        const endDate = new Date().getTime() + (35 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (10 * 60 * 1000);
+        // مدت زمان برای تایمر (35 روز و 7 ساعت و 51 دقیقه)
+        const endDate = new Date().getTime() + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (51 * 60 * 1000);
 
         const timerElement = document.getElementById('timer');
 
@@ -27,13 +27,19 @@
                 timerElement.innerHTML = "تایمر تمام شد!";
                 clearInterval(timerInterval);
             } else {
+                // محاسبه روزها، ساعت‌ها، دقیقه‌ها و ثانیه‌ها
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);  // اضافه کردن ثانیه‌ها
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-                // نمایش زمان با فرمت روزها، ساعت‌ها، دقیقه‌ها و ثانیه‌ها
-                timerElement.innerHTML = `${days} روز, ${hours} ساعت, ${minutes} دقیقه, ${seconds} ثانیه`;
+                // اطمینان از نمایش دو رقمی برای ساعت‌ها، دقیقه‌ها و ثانیه‌ها
+                const formattedHours = hours < 10 ? '0' + hours : hours;
+                const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+                const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+                // نمایش زمان به فرمت روزها، ساعت‌ها، دقیقه‌ها و ثانیه‌ها
+                timerElement.innerHTML = `${days} روز, ${formattedHours} ساعت, ${formattedMinutes} دقیقه, ${formattedSeconds} ثانیه`;
             }
         }
 
