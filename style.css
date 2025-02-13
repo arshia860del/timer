@@ -1,0 +1,63 @@
+/* تنظیمات اولیه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* تنظیمات صفحه */
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    direction: rtl; /* راست‌چین کردن تمام متن‌ها */
+}
+
+/* استایل برای container */
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* استایل تایمر */
+.timer {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e44d26;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    min-width: 220px;
+    text-align: right; /* راست‌چین کردن عددها داخل تایمر */
+}
+
+/* برای اطمینان از اینکه متن‌ها به صورت درست راست‌چین بشن */
+.timer span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e44d26;
+}
