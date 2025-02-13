@@ -16,7 +16,7 @@
         // بررسی وجود تایمر قبلی در localStorage
         let endDate = localStorage.getItem('endDate');
 
-        // اگر تایمری در localStorage نبود، محاسبه کنیم
+        // اگر تایمری در localStorage نبود، محاسبه کنیم و ذخیره کنیم
         if (!endDate) {
             // مدت زمان برای تایمر (35 روز و 7 ساعت و 51 دقیقه)
             endDate = new Date().getTime() + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (51 * 60 * 1000);
