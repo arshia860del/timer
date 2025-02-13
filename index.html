@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایمر</title>
-    <link rel="stylesheet" href="style.css">
+    <title>تایمر تا عید نوروز</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f8f9fa;
+            direction: rtl;
         }
         .container {
             margin-top: 50px;
@@ -17,27 +17,25 @@
         .timer {
             font-size: 24px;
             font-weight: bold;
-            direction: rtl;
+            color: #d32f2f;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>تایمر</h1>
-        <p>زمان باقی‌مانده:</p>
+        <h1>تایمر تا عید نوروز ۱۴۰۳</h1>
+        <p>زمان باقی‌مانده تا سال جدید:</p>
         <div id="timer" class="timer"></div>
     </div>
     <script>
-        // تنظیم زمان پایان (۳۵ روز، ۷ ساعت و ۳۸ دقیقه از لحظه‌ی اجرا)
-        const now = new Date().getTime();
-        const endDate = now + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (38 * 60 * 1000);
-
         function updateTimer() {
+            // تاریخ و ساعت تحویل سال ۱۴۰۳ به وقت تهران (۲۱ مارس ۲۰۲۵، ۰۰:۰۰)
+            const newYearDate = new Date("2025-03-21T00:00:00+03:30").getTime();
             const now = new Date().getTime();
-            const timeRemaining = endDate - now;
+            const timeRemaining = newYearDate - now;
 
             if (timeRemaining <= 0) {
-                document.getElementById("timer").innerHTML = "زمان به پایان رسید!";
+                document.getElementById("timer").innerHTML = "🎉 سال نو مبارک! 🎊";
                 clearInterval(timerInterval);
             } else {
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -50,8 +48,8 @@
             }
         }
 
-        updateTimer(); // اجرای اولیه
-        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // اولین اجرا
+        const timerInterval = setInterval(updateTimer, 1000); // بروزرسانی هر ثانیه
     </script>
 </body>
 </html>
