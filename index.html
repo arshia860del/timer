@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایمر تا عید نوروز</title>
+    <title>تایمر تا زمان مشخص‌شده</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -23,20 +23,20 @@
 </head>
 <body>
     <div class="container">
-        <h1>تایمر تا عید نوروز 1403</h1>
-        <p>زمان باقی‌مانده تا سال جدید</p>
+        <h1>تایمر</h1>
+        <p>زمان باقی‌مانده تا موعد مشخص‌شده</p>
         <div id="timer" class="timer"></div>
     </div>
     <script>
-        function updateTimer() {
-            // تاریخ عید نوروز 1403 (21 مارچ 2025 - ساعت 00:00 تهران)
-            const newYearDate = new Date("2025-03-21T00:00:00").getTime();
+        // زمان پایان: 35 روز، 7 ساعت و 38 دقیقه از الان
+        const endDate = new Date().getTime() + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (38 * 60 * 1000);
 
+        function updateTimer() {
             const now = new Date().getTime();
-            const timeRemaining = newYearDate - now;
+            const timeRemaining = endDate - now;
 
             if (timeRemaining <= 0) {
-                document.getElementById("timer").innerHTML = "سال نو مبارک!";
+                document.getElementById("timer").innerHTML = "زمان به پایان رسید!";
                 clearInterval(timerInterval);
             } else {
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
