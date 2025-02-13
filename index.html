@@ -3,53 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایمر</title>
+    <title>تایمر تا عید نوروز</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            direction: rtl;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>تایمر</h1>
-        <p>زمان باقی‌مانده تا عید</p>
+        <h1>تایمر تا عید نوروز 1403</h1>
+        <p>زمان باقی‌مانده تا سال جدید</p>
         <div id="timer" class="timer"></div>
     </div>
     <script>
-        // بررسی وجود تایمر قبلی در localStorage
-        let endDate = localStorage.getItem('endDate');
-
-        // اگر تایمری در localStorage نبود، محاسبه کنیم و ذخیره کنیم
-        if (!endDate) {
-            // مدت زمان برای تایمر (35 روز و 7 ساعت و 51 دقیقه)
-            endDate = new Date().getTime() + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (51 * 60 * 1000);
-            localStorage.setItem('endDate', endDate);  // ذخیره زمان پایان در localStorage
-        }
-
-        const timerElement = document.getElementById('timer');
-
         function updateTimer() {
-            const now = new Date().getTime();
-            const timeRemaining = endDate - now;
+            // تاریخ عید نوروز 1403 (21 مارچ 2025 - ساعت 00:00 تهران)
+            const newYearDate = new Date("2025-03-21T00:00:00").getTime();
 
-            // اگر تایمر تمام شد
+            const now = new Date().getTime();
+            const timeRemaining = newYearDate - now;
+
             if (timeRemaining <= 0) {
-                timerElement.innerHTML = "تایمر تمام شد!";
+                document.getElementById("timer").innerHTML = "سال نو مبارک!";
                 clearInterval(timerInterval);
             } else {
-                // محاسبه روزها، ساعت‌ها، دقیقه‌ها و ثانیه‌ها
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-                // اطمینان از نمایش دو رقمی برای ساعت‌ها، دقیقه‌ها و ثانیه‌ها
-                const formattedHours = hours < 10 ? '0' + hours : hours;
-                const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-                const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
-
-                // نمایش زمان به فرمت روزها، ساعت‌ها، دقیقه‌ها و ثانیه‌ها
-                timerElement.innerHTML = `${days} روز, ${formattedHours} ساعت, ${formattedMinutes} دقیقه, ${formattedSeconds} ثانیه`;
+                document.getElementById("timer").innerHTML = 
+                    `${days} روز, ${hours} ساعت, ${minutes} دقیقه, ${seconds} ثانیه`;
             }
         }
 
+        updateTimer(); // اولین اجرا
         const timerInterval = setInterval(updateTimer, 1000);
     </script>
 </body>
