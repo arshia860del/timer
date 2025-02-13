@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایمر تا موعد مشخص‌شده</title>
+    <title>تایمر</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -24,11 +24,11 @@
 <body>
     <div class="container">
         <h1>تایمر</h1>
-        <p>زمان باقی‌مانده تا موعد مشخص‌شده</p>
+        <p>زمان باقی‌مانده:</p>
         <div id="timer" class="timer"></div>
     </div>
     <script>
-        // تعیین زمان پایان (35 روز 7 ساعت و 38 دقیقه از الان)
+        // تنظیم زمان پایان (۳۵ روز، ۷ ساعت و ۳۸ دقیقه از لحظه‌ی اجرا)
         const now = new Date().getTime();
         const endDate = now + (35 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (38 * 60 * 1000);
 
@@ -50,7 +50,7 @@
             }
         }
 
-        updateTimer(); // اولین اجرا
+        updateTimer(); // اجرای اولیه
         const timerInterval = setInterval(updateTimer, 1000);
     </script>
 </body>
